@@ -1,0 +1,37 @@
+{% extends 'workers/base.html' %}
+{% load static %}
+
+
+{% block content %}
+  <!-- Карточка сотрудника месяца -->
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-1">
+      <div class="col">
+  <div class="card border-3 mt-3" id="card">
+    <div class="card-header text-center bg-dark text-light">{{ title }}</div>
+    <div class="card-body">
+      {% if worker.photo %}
+      <img src="{{worker.photo.url}}" class="card-img-top" width="100%" height="100%" alt="">
+      {% else %}
+      <p style="text-align: center;">Фотография отсутствует</p>      
+      {% endif %}
+    
+    </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item list-group-item-secondary">ФИО: {{worker.fio}}</li>
+          <li class="list-group-item list-group-item-secondary">Должность: {{worker.position}}</li>
+          <li class="list-group-item list-group-item-secondary">Дом.адрес:{{worker.adress}}</li>
+          <li class="list-group-item list-group-item-secondary">Телефон: {{worker.telephone}}</li>
+          <li class="list-group-item list-group-item-secondary">e-mail: {{worker.email}}</li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+  <!-- Конец карточки сотрудника месяца -->
+  {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
+

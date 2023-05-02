@@ -1,0 +1,53 @@
+{% extends 'workers/base.html' %}
+
+{% block content %}
+	<!-- Форма добавления сотрудника -->
+	<div class="container">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-1">
+			<div class="col">
+	<form class="form-add-worker fs-5" method="post" action="{% url 'add_worker' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+     <p class="title-add-worker bg-dark text-light rounded text-center">Добавление сотрудника</p>
+
+    <div class="mt-3">
+     <label for="{{form.fio.id_for_label}}" class="form-label">{{form.fio.label}}: </label>
+    <input type="text" class="form-control" name="fio" placeholder="Фамилия Имя Отчество">
+     <div class="form-error">{{ form.fio.errors }}</div>
+
+
+    <div class="mt-3">
+     <label for="{{form.position.id_for_label}}" class="form-label">{{form.position.label}}: </label>
+    <input type="text" class="form-control" name="position" placeholder="Должность">
+     <div class="form-error">{{ form.position.errors }}</div>
+
+      <div class="mt-3">
+     <label for="{{form.telephone.id_for_label}}" class="form-label">{{form.telephone.label}}: </label>
+    <input type="tel" class="form-control" name="telephone" placeholder="Моб. номер">
+     <div class="form-error">{{ form.telephone.errors }}</div>
+      <div class="mt-3">
+     <label for="{{form.email.id_for_label}}" class="form-label">{{form.email.label}}: </label>
+    <input type="email" class="form-control" name="email" placeholder="Эл. почта">
+    <div class="form-error">{{ form.email.errors }}</div>
+
+      <div class="mt-3">
+     <label for="{{form.adress.id_for_label}}" class="form-label">{{form.adress.label}}: </label>
+    <input type="text" class="form-control" name="adress" placeholder="Адрес проживания">
+    <div class="form-error">{{ form.adress.errors }}</div>
+
+      <div class="mt-3">
+     <label for="{{form.photo.id_for_label}}" class="form-label">{{form.photo.label}}: </label> {{form.photo}}
+     <div class="form-error">{{ form.photo.errors }}</div>
+  
+  <button type="submit" class="btn btn-primary bg-dark border-dark mt-3 mb-3" style="width: 100%;" name="add">Добавить</button>
+</form>
+</div>
+</div>
+</div>
+	<!-- Конец формы добавления сотрудника -->
+
+{% endblock %}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+}
+</body>
+</html>
